@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:layout_collapseMode="pin"
+            app:title="@string/title_post" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="24dp"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.liaudev.dicodingbpaa.customs.RoundTextView
+            android:id="@+id/tvRoundName"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rtvBackground="@color/purple_500"
+            app:rtvIsCircle="true"
+            app:rtvText="m"
+            app:rtvTextColor="@android:color/white"
+            app:rtvTextSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            app:layout_constraintBottom_toTopOf="@+id/tvPostBy"
+            app:layout_constraintLeft_toRightOf="@+id/tvRoundName"
+            app:layout_constraintTop_toTopOf="@+id/tvRoundName"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Your username" />
+
+        <TextView
+            android:id="@+id/tvPostBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/tvRoundName"
+            app:layout_constraintLeft_toRightOf="@+id/tvRoundName"
+            app:layout_constraintTop_toBottomOf="@+id/tvUsername"
+            tools:text="Post by " />
+
+        <CheckBox
+            android:id="@+id/checkboxGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="?android:attr/listChoiceIndicatorMultiple"
+            android:gravity="center_horizontal"
+            android:text="@string/by_guest"
+            app:layout_constraintBottom_toBottomOf="@+id/tvRoundName"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvRoundName" />
+
+        <EditText
+            android:id="@+id/edtDescreption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:gravity="start|top"
+            android:hint="@string/insert_descreption"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:maxLines="4"
+            android:minLines="4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRoundName" />
+
+        <LinearLayout
+            android:id="@+id/parentListPostMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtDescreption">
+
+            <TextView
+                android:id="@+id/tvAddPhotoCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:scaleType="centerCrop"
+                android:text="@string/add_from_camera"
+                app:drawableStartCompat="@drawable/ic_baseline_photo_camera_24" />
+
+
+            <TextView
+                android:id="@+id/tvAddPhotoGallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:scaleType="centerCrop"
+                android:text="@string/add_from_gallery"
+                app:drawableStartCompat="@drawable/ic_baseline_image_search_24" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAddLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:text="@string/add_location"
+            app:drawableStartCompat="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/parentListPostMenu" />
+
+        <TextView
+            android:id="@+id/tvInfoLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:text=""
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/parentListPostMenu" />
+
+        <FrameLayout
+            android:id="@+id/parentPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="8dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAddLocation">
+
+            <ImageView
+                android:id="@+id/imgPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/photo_story"
+                android:scaleType="centerCrop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#85222020" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnRemovePhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_delete_outline_24" />
+
+        </FrameLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPosting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:enabled="true"
+            android:text="@string/submit"
+            android:textAlignment="center"
+            app:icon="@drawable/ic_baseline_post_add_24"
+            app:iconGravity="textStart"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/parentPhoto" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
