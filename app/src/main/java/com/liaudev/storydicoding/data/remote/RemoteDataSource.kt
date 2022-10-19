@@ -14,6 +14,20 @@ import kotlinx.coroutines.flow.flow
  * Budiliauw87@gmail.com
  */
 class RemoteDataSource private constructor(private val apiService: ApiService) {
+
+    companion object {
+        @Volatile
+        private var INSTANCE: RemoteDataSource? = null
+
+        fun getInstance(apiService: ApiService): RemoteDataSource {
+            return INSTANCE ?: synchronized(this) {
+                val instance = RemoteDataSource(apiService)
+                INSTANCE = instance
+                instance
+            }
+        }
+    }
+
     fun loginAccount(
         email: String,
         password: String

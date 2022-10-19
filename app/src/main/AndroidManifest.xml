@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryAppKotlin"
         tools:targetApi="31">
+
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true">
@@ -22,10 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
